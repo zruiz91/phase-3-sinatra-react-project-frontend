@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState} from "react";
 
 const initialState = {
     title: "",
@@ -14,7 +14,7 @@ function PerformanceEditForm({ performanceToEdit, onUpdatePerformance }) {
     const { title, streamer_id, game_id } = formData;
 
     useEffect(() => {
-        fetch(`http://localhost:4000/performances/${performanceToEdit.id}`)
+        fetch(`http://localhost:9292/performances/${performanceToEdit.id}`)
             .then((res) => res.json())
             .then((performance) => setFormData(performance));
     }, [performanceToEdit.id]);
@@ -39,6 +39,7 @@ function PerformanceEditForm({ performanceToEdit, onUpdatePerformance }) {
           .then((updatedPerformance) => {
             onUpdatePerformance(updatedPerformance);
           });
+          onUpdatePerformance(formData)
       };
 
 

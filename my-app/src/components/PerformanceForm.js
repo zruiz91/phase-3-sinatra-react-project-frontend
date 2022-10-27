@@ -7,7 +7,7 @@ const initialState = {
     game_id: "",
 };
 
-function PerformanceForm(onAddPerformance) {
+function PerformanceForm({onAddPerformance}) {
     const [formData, setFormData] = useState(initialState);
 
     const handleChange = (e) => {
@@ -29,12 +29,13 @@ function PerformanceForm(onAddPerformance) {
         })
             .then((res) => res.json())
             .then(newPerformance => {
-                (onAddPerformance(newPerformance));
+                console.log(newPerformance);
+                (onAddPerformance(newPerformance[0]));
             })
+            
     }
 
     return (
-        // made an update to the margins on add movie from
         <Container style={{
             padding: "20%, 20%",
             marginBottom: "2rem",
@@ -62,9 +63,8 @@ function PerformanceForm(onAddPerformance) {
                     </Row>
                     <Row>
                         <Col>
-                            <Form.Label>Releast Date</Form.Label>
+                            <Form.Label>Streamer ID</Form.Label>
                             <Form.Control
-                                className=""
                                 type="number"
                                 id="streamer_id"
                                 name="streamer_id"
@@ -84,11 +84,11 @@ function PerformanceForm(onAddPerformance) {
                                 name="game_id"
                                 placeholder="game"
                                 onChange={handleChange}
-                                value={formData.game_id}}
+                                value={formData.game_id}
                             />
                         </Col>
                     </Row>
-                    <Button type="submit" class="my-3">
+                    <Button onClick={handleSubmit} type="submit" class="my-3">
                         Add Performance
                     </Button>
                 </Form.Group>

@@ -16,13 +16,24 @@ function PerformancesContainer() {
     }, [])
 
     const onAddPerformance = (newPerformance) => {
-        setPerformances([...performances, newPerformance]);
+        
+        setPerformances(performances =>[...performances, newPerformance]);
     };
 
+    const onDeletePerformance = (id) => {
+        setPerformances(performances => performances.filter(performance => performance.id !== id))
+      }
 
-    const onUpdatePerformance = () => {
+    const onUpdatePerformance= (updatedPerformance) => {
+        console.log(updatedPerformance);
+        setPerformances(performance => {
+          return performance.map(project => {
+            return project.id === updatedPerformance.id ? updatedPerformance : project;
+          })
+        })
         setPerformanceToEdit(null);
-    };
+      };
+    
 
     const onEditPerformance = (performanceToEdit) => {
         setPerformanceToEdit(performanceToEdit);
@@ -47,8 +58,9 @@ function PerformancesContainer() {
             <PerformanceList
                 performances={performances}
                 onEditPerformance={onEditPerformance}
-                watchedPerformances={watchedPerformances}
-                setwatchedPerformances={setwatchedPerformances} />
+                onUpdatePerformance={onUpdatePerformance}
+                onDeletePerformance={onDeletePerformance}
+                 />
         </div>
     )
 
