@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 import { useState } from "react";
 
@@ -7,8 +6,10 @@ const initialState = {
     streamer_id: "",
     game_id: "",
 };
+
 function PerformanceForm(onAddPerformance) {
     const [formData, setFormData] = useState(initialState);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((formData) => ({ ...formData, [name]: value }));
@@ -48,7 +49,7 @@ function PerformanceForm(onAddPerformance) {
                     <h3>Add A New Performance</h3>
                     <Row>
                         <Col>
-                            <Form.Label htmlFor="title">Performance Title</Form.Label>
+                            <Form.Label>Performance Title</Form.Label>
                             <Form.Control
                                 type="text"
                                 id="title"
@@ -61,10 +62,10 @@ function PerformanceForm(onAddPerformance) {
                     </Row>
                     <Row>
                         <Col>
-                            <Form.Label htmlFor="streamer_id">Releast Date</Form.Label>
+                            <Form.Label>Releast Date</Form.Label>
                             <Form.Control
                                 className=""
-                                type="integer"
+                                type="number"
                                 id="streamer_id"
                                 name="streamer_id"
                                 placeholder="Streamer Id"
@@ -76,15 +77,14 @@ function PerformanceForm(onAddPerformance) {
 
                     <Row>
                         <Col>
-                            <Form.Label htmlFor="rating">Rating</Form.Label>
+                            <Form.Label>Rating</Form.Label>
                             <Form.Control
                                 type="number"
-                                id="rating"
-                                name="rating"
-                                step="0.1"
-                                placeholder="Rating"
+                                id="game_id"
+                                name="game_id"
+                                placeholder="game"
                                 onChange={handleChange}
-                                value={formData.rating}
+                                value={formData.game_id}}
                             />
                         </Col>
                     </Row>

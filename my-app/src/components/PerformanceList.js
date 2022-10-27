@@ -3,14 +3,13 @@ import React from 'react';
 import PerformanceListItem from "./PerformanceListItem";
 
 
-function PerformanceList({performances, watchedPerformances, setWatchedPerformances}) {
+function PerformanceList({performances,onEditPerformance}) {
 
     const performanceListItems = performances.map((performance) => {
         return (<PerformanceListItem
                 key={performance.id}
                 performance={performance}
-                watchedPerformances={watchedPerformances}
-                setWatchedPerformances={setWatchedPerformances}
+                onEditPerformance={onEditPerformance}
                 />
         )
     })
