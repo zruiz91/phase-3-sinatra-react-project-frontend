@@ -1,21 +1,21 @@
 import React from 'react';
-import { useState } from "react";
 
 import PerformanceListItem from "./PerformanceListItem";
 
 
-function PerformanceList({performances}) {
+function PerformanceList({performances, watchedPerformances, setWatchedPerformances}) {
 
     const performanceListItems = performances.map((performance) => {
         return (<PerformanceListItem
                 key={performance.id}
                 performance={performance}
+                watchedPerformances={watchedPerformances}
+                setWatchedPerformances={setWatchedPerformances}
                 />
         )
     })
     return (
         <div>
-        <button>performanceList</button>
         {performanceListItems}
         </div>
     )
