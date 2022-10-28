@@ -3,8 +3,8 @@ import React from 'react';
 
 function PerformanceListItem({performance, onEditPerformance, onDeletePerformance}) {
     const title = performance.title;
-    const streamer_id = performance.streamer_id;
-    const game_id = performance.game_id;
+    const streamer_name = performance.streamer_name;
+    const game_name = performance.game_id;
 
     const handleEditClick = () => {
         onEditPerformance(performance)
@@ -21,9 +21,9 @@ function PerformanceListItem({performance, onEditPerformance, onDeletePerformanc
     return (
         <li >
             <section>
-                <h4>{title}</h4>
-                <p>{streamer_id}</p>
-                <p>{game_id}</p>
+                <h4>Performance:  {title}</h4>
+                <p>Streamer: {streamer_name}</p>
+                <p>Game:  {game_name}</p>
                 <button onClick={handleEditClick}>Edit</button>
                 <button onClick={handleDeleteClick}>Delete</button>
             </section>

@@ -30,7 +30,7 @@ function PerformanceForm({onAddPerformance}) {
             .then((res) => res.json())
             .then(newPerformance => {
                 console.log(newPerformance);
-                (onAddPerformance(newPerformance[0]));
+                (onAddPerformance(newPerformance));
             })
             
     }
