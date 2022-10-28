@@ -32,7 +32,6 @@ function PerformanceForm({onAddPerformance}) {
                 console.log(newPerformance);
                 (onAddPerformance(newPerformance));
             })
-            
     }
 
     return (
@@ -77,7 +76,7 @@ function PerformanceForm({onAddPerformance}) {
 
                     <Row>
                         <Col>
-                            <Form.Label>Rating</Form.Label>
+                            <Form.Label>Game</Form.Label>
                             <Form.Control
                                 type="number"
                                 id="game_id"

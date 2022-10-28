@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import NavBar from "./components/NavBar";
+import Header from "./components/Header";
 import PerformancesContainer from "./components/PerformancesContainer";
 import './App.css';
 
@@ -9,7 +9,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <NavBar/>
+      <Header/>
       <PerformancesContainer/>
     </div>
   )

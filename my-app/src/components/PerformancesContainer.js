@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap';
 
 import PerformanceList from "./PerformanceList";
 import PerformanceForm from "./PerformanceForm";
@@ -16,24 +17,24 @@ function PerformancesContainer() {
     }, [])
 
     const onAddPerformance = (newPerformance) => {
-        
-        setPerformances(performances =>[...performances, newPerformance]);
+
+        setPerformances(performances => [...performances, newPerformance]);
     };
 
     const onDeletePerformance = (id) => {
         setPerformances(performances => performances.filter(performance => performance.id !== id))
-      }
+    }
 
-    const onUpdatePerformance= (updatedPerformance) => {
+    const onUpdatePerformance = (updatedPerformance) => {
         console.log(updatedPerformance);
         setPerformances(performance => {
-          return performance.map(project => {
-            return project.id === updatedPerformance.id ? updatedPerformance : project;
-          })
+            return performance.map(project => {
+                return project.id === updatedPerformance.id ? updatedPerformance : project;
+            })
         })
         setPerformanceToEdit(null);
-      };
-    
+    };
+
 
     const onEditPerformance = (performanceToEdit) => {
         setPerformanceToEdit(performanceToEdit);
@@ -53,15 +54,15 @@ function PerformancesContainer() {
     };
 
     return (
-        <div>
+        <Container>
             {renderForm()}
             <PerformanceList
                 performances={performances}
                 onEditPerformance={onEditPerformance}
                 onUpdatePerformance={onUpdatePerformance}
                 onDeletePerformance={onDeletePerformance}
-                 />
-        </div>
+            />
+        </Container>
     )
 
 }

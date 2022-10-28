@@ -1,5 +1,6 @@
 import React from 'react';
 import PerformanceListItem from "./PerformanceListItem";
+import { Container, Row, Col, CardGroup } from 'react-bootstrap';
 
 
 function PerformanceList({performances,onEditPerformance, onDeletePerformance, onUpdatePerformance}) {
@@ -15,9 +16,21 @@ function PerformanceList({performances,onEditPerformance, onDeletePerformance, o
         )
     })
     return (
-        <div>
-        {performanceListItems}
-        </div>
+        <Container
+            className="bg-dark text-center"
+            style={{
+                border: "#4444 2px solid",
+                padding: "2%",
+                marginBottom: "2rem",
+                marginTop: "05%",
+                borderRadius: "30px",
+            }}
+        >
+            {/* added CardGroup to make cards line up sideby side */}
+            <CardGroup>
+            {performanceListItems}
+            </CardGroup>
+        </Container>
     )
 }
 

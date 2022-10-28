@@ -1,4 +1,5 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
+import { Button, Form, Container, Row, Col } from 'react-bootstrap';
 
 const initialState = {
     title: "",
@@ -27,55 +28,79 @@ function PerformanceEditForm({ performanceToEdit, onUpdatePerformance }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const configObj = {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(formData),
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData),
         };
-    
+
         fetch(`http://localhost:9292/performances/${performanceToEdit.id}`, configObj)
-          .then((resp) => resp.json())
-          .then((updatedPerformance) => {
-            onUpdatePerformance(updatedPerformance);
-          });
-          onUpdatePerformance(formData)
-      };
+            .then((resp) => resp.json())
+            .then((updatedPerformance) => {
+                onUpdatePerformance(updatedPerformance);
+            });
+        onUpdatePerformance(formData)
+    };
 
 
     return (
 
-        <form onSubmit={handleSubmit}>
-            <h3>Edit Performance</h3>
+        <Container style={{
+            padding: "20%, 20%",
+            marginBottom: "2rem",
+            marginTop: "10%"
+        }}>
+            <Form
+                className="form border rounded  "
+                autoComplete="off"
+                onSubmit={handleSubmit}
+            >
+                <Form.Group className="my-3 mx-3">
+                    <h3>Edit Performance</h3>
+                    <Row>
+                        <Col>
+                            <Form.Label>Performance Title</Form.Label>
+                            <Form.Control
+                                type="text"
+                                id="title"
+                                name="title"
+                                value={title}
+                                onChange={handleOnChange}
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Form.Label>Streamer ID</Form.Label>
+                            <Form.Control
+                                type="text"
+                                id="streamer_id"
+                                name="streamer_id"
+                                value={streamer_id}
+                                onChange={handleOnChange}
+                            />
+                        </Col>
+                    </Row>
 
-            <label>Title</label>
-            <input
-                type="text"
-                id="title"
-                name="title"
-                value={title}
-                onChange={handleOnChange}
-            />
-            <label>Streamer</label>
-            <input
-                type="text"
-                id="streamer_id"
-                name="streamer_id"
-                value={streamer_id}
-                onChange={handleOnChange}
-            />
-
-            <label>Game</label>
-            <input
-                type="text"
-                id="game_id"
-                name="game_id"
-                value={game_id}
-                onChange={handleOnChange}
-            />
-
-            <button type="submit">Update Performance</button>
-        </form>
+                    <Row>
+                        <Col>
+                            <Form.Label>Game</Form.Label>
+                            <Form.Control
+                                type="text"
+                                id="game_id"
+                                name="game_id"
+                                value={game_id}
+                                onChange={handleOnChange}
+                            />
+                        </Col>
+                    </Row>
+                    <Button type="submit" class="my-3">
+                        Update Performance
+                    </Button>
+                </Form.Group>
+            </Form>
+        </Container>
     );
 }
 
