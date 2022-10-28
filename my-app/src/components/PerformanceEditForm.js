@@ -56,7 +56,7 @@ function PerformanceEditForm({ performanceToEdit, onUpdatePerformance }) {
                 autoComplete="off"
                 onSubmit={handleSubmit}
             >
-                <Form.Group className="my-3 mx-3">
+                <Form.Group className="my-3 mx-3 mb-3">
                     <h3>Edit Performance</h3>
                     <Row>
                         <Col>
@@ -95,7 +95,7 @@ function PerformanceEditForm({ performanceToEdit, onUpdatePerformance }) {
                             />
                         </Col>
                     </Row>
-                    <Button type="submit" class="my-3">
+                    <Button type="submit" variant="info" class="my-3">
                         Update Performance
                     </Button>
                 </Form.Group>

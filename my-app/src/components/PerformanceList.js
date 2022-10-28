@@ -17,9 +17,9 @@ function PerformanceList({performances,onEditPerformance, onDeletePerformance, o
     })
     return (
         <Container
-            className="bg-dark text-center"
+            class="border-0 text-center"
+            className="text-center"
             style={{
-                border: "#4444 2px solid",
                 padding: "2%",
                 marginBottom: "2rem",
                 marginTop: "05%",

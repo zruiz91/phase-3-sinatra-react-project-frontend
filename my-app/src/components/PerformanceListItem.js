@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Container, Col, Row, CardGroup } from 'react-bootstrap';
+import { Button, Card, Container, Col, Row, CardGroup, Stack } from 'react-bootstrap';
 
 function PerformanceListItem({ performance, onEditPerformance, onDeletePerformance }) {
     const title = performance.title;
@@ -36,12 +36,14 @@ function PerformanceListItem({ performance, onEditPerformance, onDeletePerforman
                     </Card.Body>
                     <Card.Footer>
                         <Row>
+                        <Stack gap={2} className="col-md-5 mx-auto">
                             <Col>
-                                <Button variant="primary" onClick={handleEditClick}>Edit</Button>
+                                <Button variant="info" onClick={handleEditClick}>Edit</Button>
                             </Col>
                             <Col>
-                                <Button variant="primary" onClick={handleDeleteClick}>Delete</Button>
+                                <Button variant="info" onClick={handleDeleteClick}>Delete</Button>
                             </Col>
+                            </Stack>
                         </Row>
                     </Card.Footer>
                 </Card>

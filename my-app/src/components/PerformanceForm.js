@@ -87,7 +87,7 @@ function PerformanceForm({onAddPerformance}) {
                             />
                         </Col>
                     </Row>
-                    <Button onClick={handleSubmit} type="submit" class="my-3">
+                    <Button onClick={handleSubmit} type="submit" variant="info" class="my-3">
                         Add Performance
                     </Button>
                 </Form.Group>
